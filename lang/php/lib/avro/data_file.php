@@ -283,6 +283,22 @@ class AvroDataIOReader
                                                      $this->decoder);
     $this->sync_marker = $this->read(AvroDataIO::SYNC_SIZE);
   }
+  
+  /**
+   * @returns compression codec.
+   */
+  public function getCodec()
+  {
+    return $this->codec;
+  }
+
+  /**
+   * @returns schema attribute json string.
+   */
+  public function getSchema()
+  {
+    return $this->metadata[AvroDataIO::METADATA_SCHEMA_ATTR];
+  }
 
   /**
    * @internal Would be nice to implement data() as an iterator, I think
